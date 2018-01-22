@@ -13,6 +13,7 @@ class TransactionsController < ApplicationController
     @transaction = current_user.transactions.new(transactions_params)
     if @transaction.save
       current_user.update(balance: @transaction.updated_balance)
+      TranscationMailer.email(@transaction).deliver
       redirect_to root_path, notice: "your transcation takes place successfully"
     else
       render :new

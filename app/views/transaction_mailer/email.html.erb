@@ -1,0 +1,7 @@
+Hello <%= @transaction.user.first_name %> <%= @transaction.user.last_name %>
+
+<% if @transaction.transaction_type == 'withdraw' %>
+  <%= @transaction.amount %> debited from your account
+<% else %>
+  <% @transaction.amount %> credited to your account
+<% end %> 
