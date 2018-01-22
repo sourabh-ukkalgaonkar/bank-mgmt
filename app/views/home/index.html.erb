@@ -1,0 +1,6 @@
+Home#index<br><br>
+
+<% unless user_signed_in? %>
+  <%= link_to "Sign Up", new_user_registration_path %> | 
+  <%= link_to "Sign In", new_user_session_path %>
+<% end %>
